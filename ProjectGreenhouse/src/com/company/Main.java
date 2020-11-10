@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 public class Main {
 
     public static void main(String[] args) {
-        Plants a = new Plants(typeEnum.Lemon, 1);
+        Plant a = new Plant(typeEnum.Lemon, 1);
         System.out.println(a.getwaterRequirementsML());
     }
 }
