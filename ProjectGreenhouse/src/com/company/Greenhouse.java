@@ -10,7 +10,7 @@ public class Greenhouse {
     private int vacanSpots;
     public void growPlants() {
         if ((sunlight = true) & (temperature > 10)){
-        setGrowthProgress}
+        setGrowth(1)}
     }
 }
 
