@@ -1,9 +1,11 @@
 package com.company;
 
+import java.awt.*;
 import java.net.*;
 import java.io.*;
-import java.awt.GraphicsConfiguration;
 import javax.swing.JFrame;
+
+
 
 public class GreenhouseClient {
     private Socket clientSocket = null;
@@ -43,7 +45,7 @@ public class GreenhouseClient {
             }
         }
 
-    // close the connection
+            // close the connection
             try {
             in.close();
             out.close();
@@ -55,6 +57,7 @@ public class GreenhouseClient {
 
         }
     public static void main(String[] args) throws IOException {
+        new GreenhouseGUI();
         GreenhouseClient clientServer = new GreenhouseClient("127.0.0.1", 5000);
     }
 }
