@@ -30,6 +30,7 @@ public class GreenhouseServer {
         in.close();
         out.close();
         clientSocket.close();
+        serverSocket.close();
     }
 
     public String readCommand() throws IOException {
