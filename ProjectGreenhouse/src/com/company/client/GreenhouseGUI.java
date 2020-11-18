@@ -6,12 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-class ClientGUI implements ActionListener {
+class GreenhouseGUI implements ActionListener {
     private static JLabel label;
     private static JLabel label2;
     private IGreenhouseClient Client;
 
-    ClientGUI(IGreenhouseClient client) throws IOException {
+    GreenhouseGUI(IGreenhouseClient client) throws IOException {
         JFrame frame = new JFrame("Greenhouse");
 
         JPanel buttonPanel = new JPanel(new GridBagLayout());
