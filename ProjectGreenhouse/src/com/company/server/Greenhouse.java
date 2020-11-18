@@ -1,39 +1,52 @@
-//package com.company;
-//import java.time.LocalDateTime; // Import the LocalDateTime class
-//import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
-//import java.util.Dictionary;
-//
-//public class Greenhouse {
-//    private LocalDateTime dateTime;
-//    private double humidity;
-//    private int temperature;
-//    private boolean sunlight;
-//    private int vacanSpots;
-//
-//    public Greenhouse(LocalDateTime dateTime, double humidity, int temperature, boolean sunlight, int vacanSpots) {
-//        this.dateTime = dateTime;
-//        this.temperature = temperature;
-//        this.sunlight = sunlight;
-////        this.vacanSpots = vacanSpots;
-////        this.humidity = humidity;
-//    }
-//
-//    public LocalDateTime getDateTime() {
-//        return dateTime;
-//    }
-//    public int getTemperature() {
-//        return temperature;
-//    }
-//    public boolean getSunlight() {
-//        return sunlight;
-//    }
-//
-////    public waterPlants() {
-////    }
-////
-////    WaterOff()
-////
-////    openWindow()
-////
-////    closeWindow()
-//}
+package com.company.server;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Greenhouse {
+    private List<Object> plantList = null;
+    private int totalSpots;
+    private int vacantSpots;
+
+    public Greenhouse() {
+        this.totalSpots = 15;
+        this.plantList = new ArrayList<Object>();
+        this.setVacantSpots();
+    }
+
+    public int getVacantSpots() {
+        return vacantSpots;
+    }
+
+    public int getTotalSpots() {
+        return totalSpots;
+    }
+
+    public void addVacantSpots(int number) {
+        vacantSpots = vacantSpots + number;
+    }
+
+    private void setVacantSpots() {
+        vacantSpots = totalSpots - plantList.size();
+    }
+
+    public void addPlant(String type, int stage){
+        switch (type){
+            case "Lemon" -> {
+                plantList.add(new Lemon(stage));
+            }
+            case "BabyCucumber" -> {
+                plantList.add(new BabyCucumber(stage));
+            }
+            case "BellPepper" -> {
+                plantList.add(new BellPepper(stage));
+            }
+            case "Grape" -> {
+                plantList.add(new Grape(stage));
+            }
+            case "Tomato" -> {
+                plantList.add(new Tomato(stage));
+            }
+        }
+        this.addVacantSpots(-1);
+    }
+}
