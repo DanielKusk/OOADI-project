@@ -46,8 +46,8 @@ public class Plant {
     }
 
     public void addGrowth(double growth) {
+        this.prevStage = this.getStage();
         if (this.stage != 5) {
-            this.prevStage = this.getStage();
             this.growth = min(this.growth + growth * 100 / this.growTime, 100);
             this.setStage(this.growth);
         }

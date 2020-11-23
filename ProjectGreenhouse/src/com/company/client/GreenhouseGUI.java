@@ -8,7 +8,7 @@ import java.io.IOException;
 
 class GreenhouseGUI implements ActionListener {
     private static JLabel label;
-    private static JLabel label2;
+    private JTextArea outputField;
     private final IGreenhouseClient Client;
 
     private final String[] choice = {"BabyCucumber", "BellPepper", "Grape", "Lemon", "Tomato"};
@@ -19,10 +19,18 @@ class GreenhouseGUI implements ActionListener {
 
     GreenhouseGUI(IGreenhouseClient client) throws IOException {
         JFrame frame = new JFrame("Greenhouse");
+        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS));
+        frame.setSize(700, 700);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel buttonPanel = new JPanel(new GridBagLayout());
         JPanel feedbackPanel = new JPanel();
         JPanel outputPanel = new JPanel();
+
+        frame.add(buttonPanel);
+        frame.add(feedbackPanel);
+        frame.add(outputPanel);
 
         JButton addPlantButton = new JButton("Add plant");
         addPlantButton.setActionCommand("addPlant");
@@ -44,15 +52,6 @@ class GreenhouseGUI implements ActionListener {
         nextDay.setActionCommand("nextDay");
         nextDay.addActionListener(this);
 
-        label = new JLabel();
-        label.setBounds(10, 110, 200, 20);
-        label2 = new JLabel();
-        label.setBounds(10, 110, 200, 200);
-
-        frame.add(buttonPanel);
-        frame.add(feedbackPanel);
-        frame.add(outputPanel);
-
         buttonPanel.add(plantType);
         buttonPanel.add(plantStage);
         buttonPanel.add(addPlantButton);
@@ -61,13 +60,15 @@ class GreenhouseGUI implements ActionListener {
         buttonPanel.add(getLogButton);
         buttonPanel.add(nextDay);
 
-        feedbackPanel.add(label);
-        outputPanel.add(label2);
+        label = new JLabel();
+        label.setBounds(10, 20, 200, 20);;
 
-        frame.setLayout(new GridLayout(3, 1));
-        frame.setSize(700, 700);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        feedbackPanel.add(label);
+
+        outputField = new JTextArea(30, 60);
+        JScrollPane outputPane = new JScrollPane(outputField);
+        outputField.setEditable(false);
+        outputPanel.add(outputPane);
         Client = client;
         Client.open();
     }
@@ -83,23 +84,23 @@ class GreenhouseGUI implements ActionListener {
             switch (command) {
                 case "addPlant" -> {
                     label.setText("new " + type + " requested");
-                    label2.setText(Client.addPlant(type, stage));
+                    outputField.setText(Client.addPlant(type, stage));
                 }
                 case "waterPlants" -> {
                     label.setText("Water plants requested");
-                    label2.setText(Client.waterPlants());
+                    outputField.setText(Client.waterPlants());
                 }
                 case "overview" -> {
                     label.setText("Overview requested");
-                    label2.setText(Client.getOverview());
+                    outputField.setText(Client.getOverview());
                 }
                 case "log" -> {
                     label.setText("Log:");
-                    label2.setText(Client.getLog());
+                    outputField.setText(Client.getLog());
                 }
                 case "nextDay" ->{
                     label.setText("New day");
-                    label2.setText(Client.nextDay());
+                    outputField.setText(Client.nextDay());
                 }
                 default -> label.setText("Command not recognised");
             }
