@@ -9,11 +9,13 @@ public interface IGreenhouseClient {
 
     String writeCommand(String msg) throws IOException;
 
-    String getOverview() throws IOException;
+    String addPlant(String type, String stage) throws IOException;
 
     String waterPlants() throws IOException;
 
-    String addPlant() throws IOException;
+    String getOverview() throws IOException;
 
     String getLog() throws IOException;
+
+    String nextDay() throws IOException;
 }

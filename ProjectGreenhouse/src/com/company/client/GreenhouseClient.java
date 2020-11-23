@@ -19,6 +19,7 @@ public class GreenhouseClient implements IGreenhouseClient {
         Port = port;
     }
 
+    
     @Override
     public void open() throws IOException {
         // establish a connection
@@ -29,6 +30,7 @@ public class GreenhouseClient implements IGreenhouseClient {
         in = new DataInputStream(clientSocket.getInputStream());
     }
 
+    
     @Override
     public void close(){
         // close the connection
@@ -41,29 +43,42 @@ public class GreenhouseClient implements IGreenhouseClient {
         }
     }
 
+    
     @Override
     public String writeCommand(String msg) throws IOException {
         out.writeUTF(msg);
         return in.readUTF();
     }
 
+
+    @Override
+    public String addPlant(String type, String stage) throws IOException {
+        writeCommand(type);
+        writeCommand(stage);
+        return writeCommand("addPlant");
+    }
+
+
+    @Override
+    public String waterPlants() throws IOException {
+        return writeCommand("waterPlants");
+    }
+
+    
     @Override
     public String getOverview() throws IOException {
         return writeCommand("overview");
     }
 
-    @Override
-    public String waterPlants() throws IOException {
-        return writeCommand("water");
-    }
-
-    @Override
-    public String addPlant() throws IOException {
-        return writeCommand("addplant");
-    }
 
     @Override
     public String getLog() throws IOException {
         return writeCommand("log");
+    }
+
+
+    @Override
+    public String nextDay() throws IOException {
+        return writeCommand("nextDay");
     }
 }
