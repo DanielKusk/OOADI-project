@@ -3,13 +3,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Greenhouse {
-    private List<Object> plantList = null;
+    private List<Plant> plantList = null;
     private int totalSpots;
     private int vacantSpots;
 
     public Greenhouse() {
         this.totalSpots = 15;
-        this.plantList = new ArrayList<Object>();
+        this.plantList = new ArrayList<Plant>();
         this.setVacantSpots();
     }
 
@@ -19,6 +19,10 @@ public class Greenhouse {
 
     public int getTotalSpots() {
         return totalSpots;
+    }
+
+    public List<Plant> getPlantList() {
+        return plantList;
     }
 
     public void addVacantSpots(int number) {
