@@ -36,12 +36,12 @@ public class Plant {
     public int getHeight() {
         return this.height;
     }
-    
+
     public void setWaterLevel(int waterLevel) {
         this.waterLevel = this.waterLevel + waterLevel;
     }
 
-    public void setStage(double growth) {
+    public void setStage() {
         this.stage = (int) this.growth / 20;
     }
 
@@ -49,7 +49,7 @@ public class Plant {
         this.prevStage = this.getStage();
         if (this.stage != 5) {
             this.growth = min(this.growth + growth * 100 / this.growTime, 100);
-            this.setStage(this.growth);
+            this.setStage();
         }
     }
 

@@ -23,16 +23,14 @@ public class CommandResolver {
                     return "Plants have been watered.";
                 }
                 case "overview" -> {
-                    String returnString = "";
+                    StringBuilder returnString = new StringBuilder();
                     for (Plant plant : obj.getPlantList()) {
-                        returnString = (
-                                returnString + "Type: " + plant.getClass().getSimpleName() +
-                                        ", Stage: " + plant.getStage() +
-                                        ", Water level: " + plant.getWaterLevel() +
-                                        ", Height: " + plant.getHeight() + "\r\n"
-                        );
+                        returnString.append("Type: ").append(plant.getClass().getSimpleName()
+                        ).append(", Stage: ").append(plant.getStage()
+                        ).append(", Water level: ").append(plant.getWaterLevel()
+                        ).append(", Height: ").append(plant.getHeight()).append("\r\n");
                     }
-                    return returnString;
+                    return returnString.toString();
                 }
                 case "log" -> {
                     return "Hello. Log here.";

@@ -7,11 +7,11 @@ public class Greenhouse {
     //Handles the Greenhouse plants
     private final int totalSpots = 15;
     private int vacantSpots;
-    private List<Plant> plantList = null;
+    private final List<Plant> plantList;
 
 
     public Greenhouse() {
-        this.plantList = new ArrayList<Plant>();
+        this.plantList = new ArrayList<>();
         this.setVacantSpots();
     }
 
@@ -34,15 +34,9 @@ public class Greenhouse {
     public String addPlant(String type, int stage) {
         if (vacantSpots >= 1) {
             switch (type) {
-                case "Lemon" -> {
-                    plantList.add(new Lemon(stage));
-                }
-                case "BabyCucumber" -> {
-                    plantList.add(new BabyCucumber(stage));
-                }
-                case "BellPepper" -> {
-                    plantList.add(new BellPepper(stage));
-                }
+                case "Lemon" -> plantList.add(new Lemon(stage));
+                case "BabyCucumber" -> plantList.add(new BabyCucumber(stage));
+                case "BellPepper" -> plantList.add(new BellPepper(stage));
                 case "Grape" -> {
                     plantList.add(new Grape(stage));
                 }
@@ -60,7 +54,7 @@ public class Greenhouse {
 
     public void waterPlants() {
         for (Plant plant : this.getPlantList()) {
-            plant.setWaterLevel(5);
+            plant.setWaterLevel(5 - plant.getWaterLevel());
         }
         //log plants watered
     }

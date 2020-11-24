@@ -8,7 +8,7 @@ import java.io.IOException;
 
 class GreenhouseGUI implements ActionListener {
     private static JLabel label;
-    private JTextArea outputField;
+    private final JTextArea outputField;
     private final IGreenhouseClient Client;
 
     private final String[] choice = {"BabyCucumber", "BellPepper", "Grape", "Lemon", "Tomato"};
@@ -61,7 +61,7 @@ class GreenhouseGUI implements ActionListener {
         buttonPanel.add(nextDay);
 
         label = new JLabel();
-        label.setBounds(10, 20, 200, 20);;
+        label.setBounds(10, 20, 200, 20);
 
         feedbackPanel.add(label);
 

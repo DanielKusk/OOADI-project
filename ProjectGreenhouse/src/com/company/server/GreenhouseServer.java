@@ -6,7 +6,7 @@ import java.net.Socket;
 
 public class GreenhouseServer {
     //The server handles the server socket and server-client communication.
-    private ServerSocket serverSocket = null;
+    private final ServerSocket serverSocket;
     private Socket clientSocket = null;
     private DataInputStream in = null;
     private DataOutputStream out = null;

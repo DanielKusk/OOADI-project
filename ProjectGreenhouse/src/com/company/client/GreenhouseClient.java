@@ -7,11 +7,10 @@ import java.net.Socket;
 
 public class GreenhouseClient implements IGreenhouseClient {
     private Socket clientSocket = null;
-    private DataInputStream userInput = null;
     private DataInputStream in = null;
     private DataOutputStream out = null;
-    private String Address = null;
-    private int Port;
+    private final String Address;
+    private final int Port;
 
     // constructor socket and input output streams
     public GreenhouseClient(String address, int port) {
