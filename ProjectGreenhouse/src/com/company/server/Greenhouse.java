@@ -1,41 +1,58 @@
 package com.company.server;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Greenhouse {
     //Handles the Greenhouse plants
+    private int day;
     private final int totalSpots = 15;
     private int vacantSpots;
     private final List<Plant> plantList;
 
 
-    public Greenhouse() {
+    public Greenhouse() throws IOException {
+        this.day = 1;
         this.plantList = new ArrayList<>();
         this.setVacantSpots();
+        writeToLog("Day: " + this.day);
     }
 
     public int getVacantSpots() {
-        return vacantSpots;
+        return this.vacantSpots;
     }
 
     public int getTotalSpots() {
-        return totalSpots;
+        return this.totalSpots;
     }
 
     public List<Plant> getPlantList() {
-        return plantList;
+        return this.plantList;
+    }
+
+    public String getLog() throws IOException {
+        String log;
+        log = new String(Files.readAllBytes(Paths.get("log.txt")));
+
+        return log;
     }
 
     private void setVacantSpots() {
-        vacantSpots = totalSpots - plantList.size();
+        this.vacantSpots = totalSpots - plantList.size();
     }
 
-    public String addPlant(String type) throws IOException{
-        if (vacantSpots >= 1) {
+    public void nextDay() throws IOException {
+        this.day++;
+        writeToLog("Day: " + this.day);
+    }
+
+    public String addPlant(String type) throws IOException {
+        if (this.getVacantSpots() >= 1) {
             switch (type) {
                 case "Lemon" -> plantList.add(new Lemon());
                 case "BabyCucumber" -> plantList.add(new BabyCucumber());
@@ -45,14 +62,16 @@ public class Greenhouse {
             }
             setVacantSpots();
             //log plant added
-            writeToLog("New " + type + " stage 0 added");
-            return "New " + type + " stage 0 added";
+            writeToLog("New " + type + " stage 0 added. Vacant spots: " + this.getVacantSpots() +
+                    " of " + this.getTotalSpots() + ".");
+            return "New " + type + " stage 0 added. Vacant spots: " + this.getVacantSpots() +
+                    " of " + this.getTotalSpots() + ".";
         } else {
             return "No more vacant spots.";
         }
     }
 
-    public void waterPlants() throws IOException{
+    public void waterPlants() throws IOException {
         for (Plant plant : this.getPlantList()) {
             plant.setWaterLevel(5 - plant.getWaterLevel());
         }
@@ -60,7 +79,7 @@ public class Greenhouse {
         writeToLog("Plants watered.");
     }
 
-    public String growPlants() throws IOException{
+    public String growPlants() throws IOException {
         StringBuilder plantsGrown = new StringBuilder();
         for (Plant plant : this.getPlantList()) {
             if (plant.getWaterLevel() >= 1) {
@@ -80,15 +99,6 @@ public class Greenhouse {
         PrintWriter printLine = new PrintWriter(write);
 
         printLine.printf("%s" + "%n", textLine);
-
         printLine.close();
-    }
-
-    public String getLog() throws IOException {
-        String log = "";
-
-        log = new String (Files.readAllBytes(Paths.get("log.txt")));
-
-        return log;
     }
 }

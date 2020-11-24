@@ -21,6 +21,8 @@ public class CommandResolver {
             }
             case "overview" -> {
                 StringBuilder returnString = new StringBuilder();
+                returnString.append("Vacant spots: ").append(obj.getVacantSpots()).append(" of "
+                ).append(obj.getTotalSpots()).append(".\r\n");
                 for (Plant plant : obj.getPlantList()) {
                     returnString.append("Type: ").append(plant.getClass().getSimpleName()
                     ).append(", Stage: ").append(plant.getStage()
@@ -33,6 +35,7 @@ public class CommandResolver {
                 return obj.getLog();
             }
             case "nextDay" -> {
+                obj.nextDay();
                 return obj.growPlants();
             }
             default -> {
@@ -45,5 +48,4 @@ public class CommandResolver {
     public void setType(String type) {
         this.type = type;
     }
-
 }

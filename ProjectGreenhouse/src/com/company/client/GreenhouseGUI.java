@@ -74,11 +74,10 @@ class GreenhouseGUI implements ActionListener {
         String command = event.getActionCommand();
         String type = (String) plantType.getSelectedItem();
 
-
         try {
             switch (command) {
                 case "addPlant" -> {
-                    label.setText("new " + type + " requested");
+                    label.setText("New " + type + " requested");
                     outputField.setText(Client.addPlant(type));
                 }
                 case "waterPlants" -> {
