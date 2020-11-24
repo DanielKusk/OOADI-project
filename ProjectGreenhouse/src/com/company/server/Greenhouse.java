@@ -37,12 +37,8 @@ public class Greenhouse {
                 case "Lemon" -> plantList.add(new Lemon(stage));
                 case "BabyCucumber" -> plantList.add(new BabyCucumber(stage));
                 case "BellPepper" -> plantList.add(new BellPepper(stage));
-                case "Grape" -> {
-                    plantList.add(new Grape(stage));
-                }
-                case "Tomato" -> {
-                    plantList.add(new Tomato(stage));
-                }
+                case "Grape" -> plantList.add(new Grape(stage));
+                case "Tomato" -> plantList.add(new Tomato(stage));
             }
             setVacantSpots();
             //log plant added
@@ -65,10 +61,11 @@ public class Greenhouse {
             if (plant.getWaterLevel() >= 1) {
                 plant.setWaterLevel(-1);
                 plant.addGrowth(1);
+                plant.setHeight(plant.getStage());
                 plantsGrown.append(plant.plantGrown());
                 //Log plant has grown
             }
         }
-        return plantsGrown.toString().toString();
+        return plantsGrown.toString();
     }
 }
