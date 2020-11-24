@@ -1,12 +1,9 @@
 package com.company.server;
 
 public class Tomato extends Plant {
-    private int stage;
 
-    public Tomato(int stage) {
-        super(stage);
+    public Tomato() {
         this.growTime = 4;
         this.maxHeight = 190;
-        this.setHeight(stage);
     }
 }

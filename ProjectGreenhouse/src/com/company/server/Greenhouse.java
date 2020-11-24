@@ -1,7 +1,10 @@
 package com.company.server;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Greenhouse {
     //Handles the Greenhouse plants
@@ -31,31 +34,33 @@ public class Greenhouse {
         vacantSpots = totalSpots - plantList.size();
     }
 
-    public String addPlant(String type, int stage) {
+    public String addPlant(String type) throws IOException{
         if (vacantSpots >= 1) {
             switch (type) {
-                case "Lemon" -> plantList.add(new Lemon(stage));
-                case "BabyCucumber" -> plantList.add(new BabyCucumber(stage));
-                case "BellPepper" -> plantList.add(new BellPepper(stage));
-                case "Grape" -> plantList.add(new Grape(stage));
-                case "Tomato" -> plantList.add(new Tomato(stage));
+                case "Lemon" -> plantList.add(new Lemon());
+                case "BabyCucumber" -> plantList.add(new BabyCucumber());
+                case "BellPepper" -> plantList.add(new BellPepper());
+                case "Grape" -> plantList.add(new Grape());
+                case "Tomato" -> plantList.add(new Tomato());
             }
             setVacantSpots();
             //log plant added
-            return "New " + type + " stage " + stage + " added";
+            writeToLog("New " + type + " stage 0 added");
+            return "New " + type + " stage 0 added";
         } else {
             return "No more vacant spots.";
         }
     }
 
-    public void waterPlants() {
+    public void waterPlants() throws IOException{
         for (Plant plant : this.getPlantList()) {
             plant.setWaterLevel(5 - plant.getWaterLevel());
         }
         //log plants watered
+        writeToLog("Plants watered.");
     }
 
-    public String growPlants() {
+    public String growPlants() throws IOException{
         StringBuilder plantsGrown = new StringBuilder();
         for (Plant plant : this.getPlantList()) {
             if (plant.getWaterLevel() >= 1) {
@@ -63,9 +68,27 @@ public class Greenhouse {
                 plant.addGrowth(1);
                 plant.setHeight(plant.getStage());
                 plantsGrown.append(plant.plantGrown());
-                //Log plant has grown
             }
         }
+        //Logs plant has grown
+        writeToLog(plantsGrown.toString());
         return plantsGrown.toString();
+    }
+
+    public void writeToLog(String textLine) throws IOException {
+        FileWriter write = new FileWriter("log.txt", true);
+        PrintWriter printLine = new PrintWriter(write);
+
+        printLine.printf("%s" + "%n", textLine);
+
+        printLine.close();
+    }
+
+    public String getLog() throws IOException {
+        String log = "";
+
+        log = new String (Files.readAllBytes(Paths.get("log.txt")));
+
+        return log;
     }
 }

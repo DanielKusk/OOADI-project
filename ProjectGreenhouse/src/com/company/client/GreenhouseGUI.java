@@ -14,9 +14,6 @@ class GreenhouseGUI implements ActionListener {
     private final String[] choice = {"BabyCucumber", "BellPepper", "Grape", "Lemon", "Tomato"};
     private final JComboBox<String> plantType = new JComboBox<>(choice);
 
-    private final String[] stage = {"0", "1", "2", "3", "4", "5"};
-    private final JComboBox<String> plantStage = new JComboBox<>(stage);
-
     GreenhouseGUI(IGreenhouseClient client) throws IOException {
         JFrame frame = new JFrame("Greenhouse");
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS));
@@ -53,7 +50,6 @@ class GreenhouseGUI implements ActionListener {
         nextDay.addActionListener(this);
 
         buttonPanel.add(plantType);
-        buttonPanel.add(plantStage);
         buttonPanel.add(addPlantButton);
         buttonPanel.add(waterPlantsButton);
         buttonPanel.add(getOverviewButton);
@@ -77,14 +73,13 @@ class GreenhouseGUI implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         String command = event.getActionCommand();
         String type = (String) plantType.getSelectedItem();
-        String stage = (String) plantStage.getSelectedItem();
 
 
         try {
             switch (command) {
                 case "addPlant" -> {
                     label.setText("new " + type + " requested");
-                    outputField.setText(Client.addPlant(type, stage));
+                    outputField.setText(Client.addPlant(type));
                 }
                 case "waterPlants" -> {
                     label.setText("Water plants requested");

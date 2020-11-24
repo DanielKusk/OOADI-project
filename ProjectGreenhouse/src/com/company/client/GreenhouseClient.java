@@ -51,9 +51,8 @@ public class GreenhouseClient implements IGreenhouseClient {
 
 
     @Override
-    public String addPlant(String type, String stage) throws IOException {
+    public String addPlant(String type) throws IOException {
         writeCommand(type);
-        writeCommand(stage);
         return writeCommand("addPlant");
     }
 

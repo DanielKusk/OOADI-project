@@ -9,7 +9,7 @@ public interface IGreenhouseClient {
 
     String writeCommand(String msg) throws IOException;
 
-    String addPlant(String type, String stage) throws IOException;
+    String addPlant(String type) throws IOException;
 
     String waterPlants() throws IOException;
 

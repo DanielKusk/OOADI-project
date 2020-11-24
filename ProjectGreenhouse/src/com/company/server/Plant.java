@@ -14,9 +14,9 @@ public class Plant {
     private int prevStage;
 
     //This is the constructor
-    public Plant(int stage) {
-        this.stage = stage;
-        this.growth = 20 * stage;
+    public Plant() {
+        this.stage = 0;
+        this.growth = 0;
         this.waterLevel = 5;
         this.growTime = 6;
     }
