@@ -20,6 +20,7 @@ public class Plant {
         this.growTime = 6;
     }
 
+    //These are methods
     public int getStage() {
         return this.stage;
     }
@@ -35,8 +36,7 @@ public class Plant {
     public int getHeight() {
         return this.height;
     }
-
-    //These are methods
+    
     public void setWaterLevel(int waterLevel) {
         this.waterLevel = this.waterLevel + waterLevel;
     }
