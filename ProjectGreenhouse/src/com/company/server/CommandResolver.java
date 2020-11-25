@@ -26,19 +26,8 @@ public class CommandResolver {
                 return "Plants have been watered.";
             }
             case "overview" -> {
-                //Creates an instance of String builder.
-                StringBuilder overview = new StringBuilder();
-                //Requests greenhouse and plant information from the greenhouse and builds a string for the client.
-                overview.append("Vacant spots: ").append(obj.getVacantSpots()).append(" of "
-                ).append(obj.getTotalSpots()).append(".\r\n");
-                for (Plant plant : obj.getPlantList()) {
-                    overview.append("Type: ").append(plant.getClass().getSimpleName()
-                    ).append(", Stage: ").append(plant.getStage()
-                    ).append(", Water level: ").append(plant.getWaterLevel()
-                    ).append(", Height: ").append(plant.getHeight()).append("\r\n");
-                }
-                //Returns the built string.
-                return overview.toString();
+                //Requests an overview of the Greenhouse and housed plants.
+                return obj.getOverview();
             }
             case "log" -> {
                 //Requests the greenhouse log and returns this to the client.

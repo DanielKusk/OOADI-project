@@ -4,13 +4,13 @@ import static java.lang.Math.*;
 
 public class Plant {
     //Plant attributes
-    public double growth;
     private int stage;
-    private int waterLevel;
+    private int prevStage;
+    public double growth;
     public int growTime;
+    private int waterLevel;
     public int height;
     public int maxHeight;
-    private int prevStage;
 
     //Plant constructor
     public Plant() {
@@ -39,6 +39,12 @@ public class Plant {
 
     public int getMaxHeight() {
         return maxHeight;
+    }
+
+    public String getOverview() {
+        //Creates a string with plant information.
+        return "Type: " + this.getClass().getSimpleName() + ", Stage: " + this.getStage() +
+                ", Water level: " + this.getWaterLevel() + ", Height: " + this.getHeight() + "\r\n";
     }
 
     //Plant setter methods

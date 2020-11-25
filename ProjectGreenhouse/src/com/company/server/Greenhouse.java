@@ -46,6 +46,19 @@ public class Greenhouse {
         return log;
     }
 
+    public String getOverview() {
+        //Creates an instance of String builder.
+        StringBuilder overview = new StringBuilder();
+        //Builds a string containing the Greenhouse overview.
+        overview.append("Vacant spots: ").append(this.getVacantSpots()).append(" of "
+        ).append(this.getTotalSpots()).append(".\r\n");
+        //Iterates through all plant instances to get information for the greenhouse overview.
+        for (Plant plant : this.getPlantList()) {
+            overview.append(plant.getOverview());
+        }
+        return overview.toString();
+    }
+
     //Greenhouse setter methods
     private void setVacantSpots() {
         this.vacantSpots = totalSpots - plantList.size();
