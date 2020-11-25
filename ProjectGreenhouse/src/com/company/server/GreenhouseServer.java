@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-//The server handles the server-client and serverside object communications.
+//The server handles the server-client and object communications on the server side.
 public class GreenhouseServer {
     //Server attributes.
     private final ServerSocket serverSocket;
