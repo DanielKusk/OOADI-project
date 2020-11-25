@@ -2,9 +2,8 @@ package com.company.server;
 
 import static java.lang.Math.*;
 
-//This is the class
 public class Plant {
-    //These are the attributes
+    //Plant attributes
     public double growth;
     private int stage;
     private int waterLevel;
@@ -13,7 +12,7 @@ public class Plant {
     public int maxHeight;
     private int prevStage;
 
-    //This is the constructor
+    //Plant constructor
     public Plant() {
         this.stage = 0;
         this.growth = 0;
@@ -21,7 +20,7 @@ public class Plant {
         this.growTime = 6;
     }
 
-    //These are methods
+    //Plant getter methods.
     public int getStage() {
         return this.stage;
     }
@@ -42,14 +41,17 @@ public class Plant {
         return maxHeight;
     }
 
-    public void setWaterLevel(int waterLevel) {
+    //Plant setter methods
+    public void addWaterLevel(int waterLevel) {
         this.waterLevel = this.waterLevel + waterLevel;
     }
 
+    //Sets plant stage based on plant growth.
     public void setStage() {
         this.stage = (int) this.growth / 20;
     }
 
+    //Sets plant height based on stage.
     public void setHeight(int stage) {
         if (stage == 0) {
             this.height = 0;
@@ -58,14 +60,20 @@ public class Plant {
         }
     }
 
+    //Grows plant.
     public void addGrowth(double growth) {
+        //Updates the previous stage for stage change check.
         this.prevStage = this.getStage();
+        //Checks if the plant is already fully grown.
         if (this.stage != 5) {
+            //Updates plant growth based on growTime.
             this.growth = min(this.growth + growth * 100 / this.growTime, 100);
+            //Updates the plant stage.
             this.setStage();
         }
     }
 
+    //Checks plant for stage change and returns a string of some updated plant attributes.
     public String plantGrown() {
         if (this.getStage() > this.getPrevStage()) {
             return this.getClass().getSimpleName() + " has grown to stage: " + this.getStage() + " and is now " + this.getHeight() + " tall.\r\n";

@@ -2,15 +2,19 @@ package com.company.server;
 
 import java.io.IOException;
 
+//CommandResolver handles the commands issued by the client GUI
 public class CommandResolver {
-    //CommandResolver handles the commands issued by the client GUI
+    //Attribute for plant type.
     private String type = "";
 
+    //CommandResolver constructor.
     public CommandResolver() {
 
     }
 
+    //Sends method commands to the greenhouse based on the string message from the client.
     public String ResolveMessage(Greenhouse obj, String msg) throws IOException {
+        //Checks the message.
         switch (msg) {
             case "addPlant" -> {
                 return obj.addPlant(type);
