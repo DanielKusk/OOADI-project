@@ -32,7 +32,7 @@ class GreenhouseGUI implements ActionListener {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Creates frame panels.
+        //Creates panels.
         JPanel buttonPanel = new JPanel(new GridBagLayout());
         JPanel feedbackPanel = new JPanel();
         JPanel outputPanel = new JPanel();
@@ -42,7 +42,7 @@ class GreenhouseGUI implements ActionListener {
         frame.add(feedbackPanel);
         frame.add(outputPanel);
 
-        //Creates frame buttons, button action- commands and listeners.
+        //Creates buttons, button action- commands and listeners.
         JButton addPlantButton = new JButton("Add plant");
         addPlantButton.setActionCommand("addPlant");
         addPlantButton.addActionListener(this);

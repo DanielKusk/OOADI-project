@@ -1,7 +1,7 @@
 package com.company.client;
 
 public class Main {
-    
+
     public static void main(String[] args) {
         try {
             //Creates an instance of the GUI and Client.
