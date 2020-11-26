@@ -1,68 +1,19 @@
 Day: 1
 New BabyCucumber stage 0 added. Vacant spots: 14 of 15.
-New BabyCucumber stage 0 added. Vacant spots: 13 of 15.
-New BabyCucumber stage 0 added. Vacant spots: 12 of 15.
+Plants watered.
+
 Day: 2
 BabyCucumber has grown to stage: 1 and is now 32 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
+New BabyCucumber stage 0 added. Vacant spots: 13 of 15.
+Plants watered.
 
-New BabyCucumber stage 0 added. Vacant spots: 11 of 15.
-New BabyCucumber stage 0 added. Vacant spots: 10 of 15.
-New BabyCucumber stage 0 added. Vacant spots: 9 of 15.
 Day: 3
 BabyCucumber has grown to stage: 2 and is now 40 tall.
-BabyCucumber has grown to stage: 2 and is now 40 tall.
-BabyCucumber has grown to stage: 2 and is now 40 tall.
 BabyCucumber has grown to stage: 1 and is now 32 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
+New BabyCucumber stage 0 added. Vacant spots: 12 of 15.
+Plants watered.
 
-New BabyCucumber stage 0 added. Vacant spots: 8 of 15.
-New BabyCucumber stage 0 added. Vacant spots: 7 of 15.
-New BabyCucumber stage 0 added. Vacant spots: 6 of 15.
 Day: 4
 BabyCucumber has grown to stage: 3 and is now 53 tall.
-BabyCucumber has grown to stage: 3 and is now 53 tall.
-BabyCucumber has grown to stage: 3 and is now 53 tall.
-BabyCucumber has grown to stage: 2 and is now 40 tall.
-BabyCucumber has grown to stage: 2 and is now 40 tall.
 BabyCucumber has grown to stage: 2 and is now 40 tall.
 BabyCucumber has grown to stage: 1 and is now 32 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
-
-New BabyCucumber stage 0 added. Vacant spots: 5 of 15.
-New BabyCucumber stage 0 added. Vacant spots: 4 of 15.
-New BabyCucumber stage 0 added. Vacant spots: 3 of 15.
-Day: 5
-BabyCucumber has grown to stage: 5 and is now 160 tall.
-BabyCucumber has grown to stage: 5 and is now 160 tall.
-BabyCucumber has grown to stage: 5 and is now 160 tall.
-BabyCucumber has grown to stage: 3 and is now 53 tall.
-BabyCucumber has grown to stage: 3 and is now 53 tall.
-BabyCucumber has grown to stage: 3 and is now 53 tall.
-BabyCucumber has grown to stage: 2 and is now 40 tall.
-BabyCucumber has grown to stage: 2 and is now 40 tall.
-BabyCucumber has grown to stage: 2 and is now 40 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
-
-New BabyCucumber stage 0 added. Vacant spots: 2 of 15.
-New BabyCucumber stage 0 added. Vacant spots: 1 of 15.
-New BabyCucumber stage 0 added. Vacant spots: 0 of 15.
-Day: 6
-BabyCucumber has grown to stage: 5 and is now 160 tall.
-BabyCucumber has grown to stage: 5 and is now 160 tall.
-BabyCucumber has grown to stage: 5 and is now 160 tall.
-BabyCucumber has grown to stage: 3 and is now 53 tall.
-BabyCucumber has grown to stage: 3 and is now 53 tall.
-BabyCucumber has grown to stage: 3 and is now 53 tall.
-BabyCucumber has grown to stage: 2 and is now 40 tall.
-BabyCucumber has grown to stage: 2 and is now 40 tall.
-BabyCucumber has grown to stage: 2 and is now 40 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
-BabyCucumber has grown to stage: 1 and is now 32 tall.
-

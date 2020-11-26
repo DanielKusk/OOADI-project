@@ -4,17 +4,15 @@ import java.io.IOException;
 
 //CommandResolver handles the commands issued by the client GUI
 public class CommandResolver {
-    //Attribute for plant type.
+    private final Logger logger;
     private String type = "";
 
-    //CommandResolver constructor.
-    public CommandResolver() {
-
+    public CommandResolver() throws IOException {
+        logger = Logger.getLogger();
     }
 
-    //Sends method commands to the greenhouse based on the string message from the client.
+    //Sends method commands to the greenhouse based on the string message from the client and returns a response.
     public String ResolveMessage(Greenhouse obj, String msg) throws IOException {
-        //Checks the message.
         switch (msg) {
             case "addPlant" -> {
                 //Requests greenhouse to add a new plant and returns information of new plant.
@@ -31,7 +29,7 @@ public class CommandResolver {
             }
             case "log" -> {
                 //Requests the greenhouse log and returns this to the client.
-                return obj.getLog();
+                return logger.getLog();
             }
             case "nextDay" -> {
                 //Requests the greenhouse to skip to next day and returns updated plant information to the client.

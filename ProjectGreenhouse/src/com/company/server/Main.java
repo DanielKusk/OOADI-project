@@ -13,7 +13,7 @@ public class Main {
         //Creates an instance of the server.
         GreenhouseServer server = new GreenhouseServer(5000);
         //Creates an instance of the greenhouse
-        Greenhouse greenhouse = new Greenhouse();
+        Greenhouse greenhouse = new Greenhouse(new PlantFactory());
         //Starts the server
         server.startServer();
         //Creates an instance of Command resolver
