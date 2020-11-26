@@ -8,8 +8,6 @@ import java.io.IOException;
 
 //GreenhouseGUI creates the graphical user interface.
 class GreenhouseGUI implements ActionListener {
-    //GUI graphics attributes.
-
     //Creates an attribute name for the Client interface
     private final IGreenhouseClient Client;
 
@@ -23,7 +21,6 @@ class GreenhouseGUI implements ActionListener {
     private final String[] choice = {"BabyCucumber", "BellPepper", "Grape", "Lemon", "Tomato"};
     private final JComboBox<String> plantType = new JComboBox<>(choice);
 
-    //GUI constructor.
     GreenhouseGUI(IGreenhouseClient client) throws IOException {
         //Creates the frame
         JFrame frame = new JFrame("Greenhouse");
@@ -80,7 +77,7 @@ class GreenhouseGUI implements ActionListener {
 
         //Creates an instance of JTextArea and overrides the attribute.
         outputField = new JTextArea(30, 60);
-        //Creates an instance of JScroolPane using the JTextArea instance as argument. Makes the JTextArea scrollable.
+        //Creates an instance of JScrollPane using the JTextArea instance as argument. Makes the JTextArea scrollable.
         JScrollPane outputPane = new JScrollPane(outputField);
         //Makes sure the user cant write in the JTextArea.
         outputField.setEditable(false);
@@ -88,7 +85,7 @@ class GreenhouseGUI implements ActionListener {
         //Adds the JScrollPane to the outputPanel.
         outputPanel.add(outputPane);
 
-        //Creates an instance og the client interface.
+        //Creates an instance of the client interface.
         Client = client;
         Client.open();
     }

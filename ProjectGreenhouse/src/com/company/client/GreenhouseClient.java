@@ -7,7 +7,6 @@ import java.net.Socket;
 
 //The client handles all client-server and object communications on the client side.
 public class GreenhouseClient implements IGreenhouseClient {
-    //Client attributes.
     private Socket clientSocket = null;
     private DataInputStream in = null;
     private DataOutputStream out = null;

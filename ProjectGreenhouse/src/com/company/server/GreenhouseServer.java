@@ -6,7 +6,6 @@ import java.net.Socket;
 
 //The server handles the server-client and object communications on the server side.
 public class GreenhouseServer {
-    //Server attributes.
     private final ServerSocket serverSocket;
     private Socket clientSocket = null;
     private DataInputStream in = null;
@@ -17,8 +16,6 @@ public class GreenhouseServer {
         serverSocket = new ServerSocket(port);
         System.out.println("Server started");
     }
-
-    //Server methods.
 
     //Starts the server
     public void startServer() throws IOException {
